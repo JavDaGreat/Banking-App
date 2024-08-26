@@ -11,7 +11,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 
 export const metadata: Metadata = {
   title: "Horizon",
-  description: "Horizon is a simple amd modern banking platform for everyone",
+  description: "Horizon is a modern banking platform for everyone.",
   icons: {
     icon: "/icons/logo.svg",
   },
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}${ibmPlexSerif.variable}`}>
+      <body className={`${inter.variable} ${ibmPlexSerif.variable}`}>
         {children}
       </body>
     </html>
