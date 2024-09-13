@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import { set, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import CustomInput from "./CustomInput";
 import { AuthFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signIn, signUp } from "@/lib/actions/user.actions";
 
 function AuthForm({ type }: { type: "sign-in" | "sign-up" }) {
   const [user, setUser] = useState(null);
@@ -30,15 +31,15 @@ function AuthForm({ type }: { type: "sign-in" | "sign-up" }) {
     setIsLoading(true);
     try {
       if (type === "sign-in") {
-        // const response = await SignIn({
+        // const response = await signIn({
         //   email: data.email,
         //   password: data.password,
         // });
         // if (response) router.push("/");
       }
       if (type === "sign-up") {
-        // const newUser = await SignUp(data);
-        // setUser(newUser);
+        const newUser = await signUp(data);
+        setUser(newUser);
       }
     } catch (error) {
       console.log(error);
@@ -96,7 +97,7 @@ function AuthForm({ type }: { type: "sign-in" | "sign-up" }) {
                   <CustomInput
                     control={form.control}
                     name="address1"
-                    label="Address"
+                    label="Address1"
                     placeholder="Entre your Address"
                   />
                   <CustomInput
