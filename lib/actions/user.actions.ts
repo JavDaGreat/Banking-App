@@ -124,7 +124,7 @@ export const createBankAccount = async ({
   accessToken,
   fundingSourceUrl,
   bankId,
-  sharableId,
+  shareableId,
 }: createBankAccountProps) => {
   try {
     const { database } = await createAdminClient();
@@ -139,7 +139,7 @@ export const createBankAccount = async ({
         accessToken,
         fundingSourceUrl,
         bankId,
-        sharableId,
+        shareableId,
       }
     );
 
@@ -188,7 +188,7 @@ export const exchangePublicToken = async ({
       accessToken,
       fundingSourceUrl,
       bankId: itemId,
-      sharableId: encryptId(accountData.account_id),
+      shareableId: encryptId(accountData.account_id),
     });
     revalidatePath("/");
 

@@ -10,7 +10,6 @@ import {
   createLinkToken,
   exchangePublicToken,
 } from "@/lib/actions/user.actions";
-import { get } from "http";
 
 function PlaidLink({ user, variant }: PlaidLinkProps) {
   const router = useRouter();
