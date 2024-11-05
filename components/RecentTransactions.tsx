@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Ban } from "lucide-react";
 import { BankTabItem } from "./BankTabItem";
 import BankInfo from "./BankInfo";
+import TransactionsTable from "./TransactionsTable";
 
 function RecentTransactions({
   accounts,
@@ -43,6 +43,7 @@ function RecentTransactions({
               appwriteItemId={appwriteItemId}
               type="full"
             />
+            <TransactionsTable transactions={transactions} />
           </TabsContent>
         ))}
 
